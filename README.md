@@ -124,7 +124,7 @@
 
 <table>
 <tr>
-      <td align="center">예약페이지</td>
+      <td align="center">예약페이지</td>
     </tr>
       <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/3c021efd-b15d-4a91-90f3-c7da37a0896c" width="400" height="300"/> </td>
 </table>
@@ -133,7 +133,7 @@
 
 <table>
 <tr>
-      <td align="center">어바웃페이지</td>
+      <td align="center">어바웃페이지</td>
     </tr>
       <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/25e84860-5f3d-4cef-9831-4d5306c683a2" width="400" height="300"/> </td>
 </table>
@@ -142,11 +142,22 @@
 
 <table>
 <tr>
-      <td align="center">콘텍트페이지</td>
+      <td align="center">콘텍트페이지</td>
     </tr>
       <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/4a5e9612-70d9-4339-aa3a-a12581bf027d" width="400" height="300"/> </td>
 </table>
 
+<br>
+<br>
+
+
+### ► 페이지 디테일
+<table>
+<tr>
+      <td align="center">반응형 디자인</td>
+    </tr>
+      <td  align="center"><img src="[https://github.com/Now-h/TestRepository/assets/150241213/4a5e9612-70d9-4339-aa3a-a12581bf027d](https://github.com/Now-h/TestRepository/assets/150241213/c2673bad-f17e-4218-afc8-dc2744cc80b0)" width="400" height="300"/> </td>
+</table>
 
 
 
