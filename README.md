@@ -68,9 +68,9 @@
 <table>
 <tr>
       <td align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/32226157-0842-46ff-88b9-ae37871f2788"
-        width="500" height="400"/></td>
+        width="600" height="500"/></td>
    </tr>
-</table>table>
+</table>
 
 
 ### ► API 명세서
@@ -78,11 +78,8 @@
    <tr>
       <td align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/8f5422e9-641e-4103-aef9-069725eaa50c"
         width="400" height="300"/></td>
-   </tr>
-   <tr>
       <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/afb9b4a9-98e9-4cdd-963e-58d3849c14c1" 
         width="400" height="300"/></td>
-   <tr>
       <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/4d9a6006-9b52-4792-8db3-988ee6b0b70f" 
         width="400" height="300"/></td>
    </tr>
