@@ -70,7 +70,20 @@
 ### ► API 명세서
 ![image](https://github.com/Now-h/FE7_Mini_Team4/assets/150241213/cc1d1fdd-557f-445f-abe7-bed6c4ec69ab)
 
+<br>
 
+### ► 페이지 구성
+<table>
+   <tr>
+      <td align="center">로그인</td>
+   </tr>
+   <tr>
+      <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/06ed0709-343c-4dfe-8005-511a0130ad08"
+ width="400" height="300"/></td>
+   <tr>
+      <td  align="center">회원가입</td>
+   </tr>
+</table>
 
 
 
