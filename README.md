@@ -152,23 +152,23 @@
 
 
 ## 👑 코딩 컨벤션
-- 📁 public
-    -  📁src
-    -    📁assets
-        -   멀티미디어 파일 (이미지, 영상 등등)
-    -    📁components
-        -   공통컴퍼넌트정의
-    -    📁context
-        -   전역데이터 useContext
-    -    📁data
-        -   json데이터
-    -    📁layout
-        -   공통레이아웃
-    -    📁pages
-        -   페이지
-    -    📁utils
-        -   Debounce, Throttling
-
+- [✔️]  📁 public
+- [ ]  📁src
+    - [ ]  📁assets
+        - [ ]  멀티미디어 파일 (이미지, 영상 등등)
+    - [ ]  📁components
+        - [ ]  공통컴퍼넌트정의
+    - [ ]  📁context
+        - [ ]  전역데이터 useContext
+    - [ ]  📁data
+        - [ ]  json데이터
+    - [ ]  📁layout
+        - [ ]  공통레이아웃
+    - [ ]  📁pages
+        - [ ]  페이지
+    - [ ]  📁utils
+        - [ ]  Debounce, Throttling
+- [ ]  index.html
 
 
 
