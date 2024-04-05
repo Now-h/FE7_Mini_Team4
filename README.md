@@ -92,11 +92,11 @@
 <table>
    <tr>
       <td align="center">로그인</td>
-   </tr>
-   <tr>
       <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/06ed0709-343c-4dfe-8005-511a0130ad08"
  width="400" height="300"/></td>
       <td align="center">회원가입</td>
+       <td align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/dc4e4184-ba27-43c2-b16a-4b6fd20d2eba"
+ width="400" height="300"/></td>
    </tr>
 </table>
 
