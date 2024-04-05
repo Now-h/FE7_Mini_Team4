@@ -93,9 +93,13 @@
 ### ► 페이지 디테일
 <table>
 <tr>
-      <td align="center">반응형 디자인</td>
+      <td align="center">반응형디자인</td>
+      <td align="center">검색기능</td>
+      <td align="center">스타일가이드</td>
     </tr>
       <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/c74faa93-909f-4545-83a0-6135c7f96d42" width="400" height="300"/> </td>
+      <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/30122e52-cda3-4dd5-bef2-1745d775208e" width="400" height="300"/> </td>
+      <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/f02c82b3-472a-4ff1-a1ba-fe7c304b2491" width="400" height="300"/> </td>
 </table>
 
 <br>
