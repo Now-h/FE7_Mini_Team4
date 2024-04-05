@@ -156,9 +156,8 @@
 <tr>
       <td align="center">반응형 디자인</td>
     </tr>
-      <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/4a5e9612-70d9-4339-aa3a-a12581bf027d](https://github.com/Now-h/TestRepository/assets/150241213/c2673bad-f17e-4218-afc8-dc2744cc80b0)](https://github.com/Now-h/TestRepository/assets/150241213/57a68764-3f73-4e22-bf7f-8c909f472223" width="400" height="300"/> </td>
+      <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/c74faa93-909f-4545-83a0-6135c7f96d42" width="400" height="300"/> </td>
 </table>
-
 
 
 
