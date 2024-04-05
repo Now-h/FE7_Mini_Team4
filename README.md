@@ -65,10 +65,11 @@
 ## ✏️ 프로젝트 소개
 
 ### ► 구현사항 
-![image](https://github.com/Now-h/FE7_Mini_Team4/assets/150241213/288f57ab-cfef-4adb-8753-34aee5756989)
+<img src="https://github.com/Now-h/TestRepository/assets/150241213/32226157-0842-46ff-88b9-ae37871f2788" />
 
 ### ► API 명세서
-![image](https://github.com/Now-h/FE7_Mini_Team4/assets/150241213/cc1d1fdd-557f-445f-abe7-bed6c4ec69ab)
+<img src="https://github.com/Now-h/TestRepository/assets/150241213/184abe91-d153-40d3-8e4a-6683d7d351b7">
+
 
 <br>
 
