@@ -68,7 +68,7 @@
 <table>
 <tr>
       <td align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/32226157-0842-46ff-88b9-ae37871f2788"
-        width="600" height="500"/></td>
+        width="700" height="400"/></td>
    </tr>
 </table>
 
