@@ -65,10 +65,23 @@
 ## ✏️ 프로젝트 소개
 
 ### ► 구현사항 
-<img src="https://github.com/Now-h/TestRepository/assets/150241213/32226157-0842-46ff-88b9-ae37871f2788" />
+<img src="https://github.com/Now-h/TestRepository/assets/150241213/32226157-0842-46ff-88b9-ae37871f2788" width="700" height="700"/>
 
 ### ► API 명세서
-<img src="https://github.com/Now-h/TestRepository/assets/150241213/184abe91-d153-40d3-8e4a-6683d7d351b7">
+<table>
+   <tr>
+      <td align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/8f5422e9-641e-4103-aef9-069725eaa50c"
+        width="400" height="300"/></td>
+   </tr>
+   <tr>
+      <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/afb9b4a9-98e9-4cdd-963e-58d3849c14c1" 
+        width="400" height="300"/></td>
+   <tr>
+      <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/4d9a6006-9b52-4792-8db3-988ee6b0b70f" 
+        width="400" height="300"/></td>
+   </tr>
+</table>
+
 
 
 <br>
