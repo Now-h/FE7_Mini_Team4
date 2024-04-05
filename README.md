@@ -72,6 +72,7 @@
    </tr>
 </table>
 
+<br>
 
 ### ► API 명세서
 <table>
@@ -85,8 +86,6 @@
    </tr>
 </table>
 
-
-
 <br>
 
 ### ► 페이지 구성
@@ -97,7 +96,6 @@
    <tr>
       <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/06ed0709-343c-4dfe-8005-511a0130ad08"
  width="400" height="300"/></td>
-   <tr>
       <td  align="center">회원가입</td>
    </tr>
 </table>
