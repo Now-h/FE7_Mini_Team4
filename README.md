@@ -105,8 +105,6 @@
 <table>
 <tr>
       <td align="center">메인페이지</td>
-   </tr>
-   <tr>
       <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/335b7c79-d3ff-433f-9034-ad5919b81616" width="400" height="300"/> </td>
       <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/4f810385-72ba-4066-ae8c-27d1d8b09bc4" width="400" height="300"/> </td>
       <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/9724c5ec-903c-404c-8cba-7502f75cce20" width="400" height="300"/> </td>
