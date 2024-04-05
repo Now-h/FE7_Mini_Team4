@@ -73,6 +73,7 @@
 </table>
 
 <br>
+<br>
 
 ### ► API 명세서
 <table>
@@ -86,6 +87,7 @@
    </tr>
 </table>
 
+<br>
 <br>
 
 ### ► 페이지 디테일
@@ -112,6 +114,7 @@
 </table>
 
 <br>
+<br>
 
 <table>
 <tr>
@@ -122,6 +125,7 @@
       <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/9724c5ec-903c-404c-8cba-7502f75cce20" width="400" height="300"/> </td>
 </table>
 
+<br>
 <br>
 
 <table>
@@ -139,6 +143,7 @@
     </tr>
 </table>
 
+<br>
 <br>
 
 
