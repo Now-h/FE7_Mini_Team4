@@ -111,7 +111,23 @@
       <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/9724c5ec-903c-404c-8cba-7502f75cce20" width="400" height="300"/> </td>
 </table>
 
+<br>
 
+<table>
+<tr>
+      <td align="center">호텔페이지</td>
+    </tr>
+      <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/05c3e86b-486d-4f8a-86d3-d54c2e27b4e2" width="400" height="300"/> </td>
+</table>
+
+<br>
+
+<table>
+<tr>
+      <td align="center">예약페이지</td>
+    </tr>
+      <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/3c021efd-b15d-4a91-90f3-c7da37a0896c"400" height="300"/> </td>
+</table>
 
 
 
