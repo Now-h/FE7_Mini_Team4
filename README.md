@@ -88,6 +88,16 @@
 
 <br>
 
+### ► 페이지 디테일
+<table>
+<tr>
+      <td align="center">반응형 디자인</td>
+    </tr>
+      <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/c74faa93-909f-4545-83a0-6135c7f96d42" width="400" height="300"/> </td>
+</table>
+
+<br>
+
 ### ► 페이지 구성
 <table>
 <tr>
@@ -118,6 +128,15 @@
       <td align="center">호텔페이지</td>
     </tr>
       <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/05c3e86b-486d-4f8a-86d3-d54c2e27b4e2" width="400" height="300"/> </td>
+    <td align="center">예약페이지</td>
+    </tr>
+      <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/3c021efd-b15d-4a91-90f3-c7da37a0896c" width="400" height="300"/> </td>
+    <td align="center">어바웃페이지</td>
+    </tr>
+      <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/25e84860-5f3d-4cef-9831-4d5306c683a2" width="400" height="300"/> </td>
+    <td align="center">콘텍트페이지</td>
+    </tr>
+      <td  align="center"><img src="https://github.com/Now-h/TestRepository/assets/150241213/4a5e9612-70d9-4339-aa3a-a12581bf027d" width="400" height="300"/> </td>
 </table>
 
 <br>
