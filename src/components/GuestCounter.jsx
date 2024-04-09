@@ -5,11 +5,13 @@ import "../styles/components/guestcounter.css";
 import Toast from "./Toast";
 import { useReservationStore } from "../store/reservationStore";
 
-const GuestCounter = ({ iscount, max, defaultValue, kids, className, allCount }) => {
-  const { addCount, allCountStore } = useReservationStore;
-  const [count, setCount] = useState(defaultValue || 0);
+const GuestCounter = ({ iscount, max, defaultValue, kids, className }) => {
+  const { payCalc } = useReservationStore();
+  const [count, setCount] = useState(defaultValue);
   const [toast, setToast] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
+
+  // console.log(payCalc.countMember);
 
   const handleDecrease = () => {
     if (count > 0) {
@@ -43,7 +45,7 @@ const GuestCounter = ({ iscount, max, defaultValue, kids, className, allCount })
         <button onClick={handleDecrease}>
           <TbMinus />
         </button>
-        <input type="number" min={kids ? "0" : "1"} className="input" value={count} readOnly onChange={handleChange} />
+        <input type="number" min={1} className="input" value={count} readOnly onChange={handleChange} />
         <button onClick={handleIncrease} disabled={isDisabled}>
           <TbPlus />
         </button>

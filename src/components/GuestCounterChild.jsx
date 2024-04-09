@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TbPlus } from "react-icons/tb";
 import { TbMinus } from "react-icons/tb";
 import "../styles/components/guestcounter.css";
 import Toast from "./Toast";
 import { useReservationStore } from "../store/reservationStore";
 
-const GuestCounterChild = ({ iscount, max, defaultValue, kids, className, allCount }) => {
+const GuestCounterChild = ({ iscount, max, defaultValue, className, allCount }) => {
   const [count, setCount] = useState(defaultValue || 0);
   const [toast, setToast] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
   const { allCountStore } = useReservationStore;
+
+  // console.log(allCount);
+
+  useEffect(() => {
+    if (allCount >= max) {
+      setIsDisabled(true);
+    } else {
+      setIsDisabled(false);
+    }
+  }, [allCount]);
 
   const handleDecrease = () => {
     if (count > 0) {
@@ -45,19 +55,14 @@ const GuestCounterChild = ({ iscount, max, defaultValue, kids, className, allCou
   return (
     <>
       <div className={`guest-counter ${className}`}>
-        <button onClick={handleDecrease} disabled={isDisabled}>
+        <button onClick={handleDecrease}>
           <TbMinus />
         </button>
-        <input type="number" min={kids ? "0" : "1"} className="input" value={count} readOnly onChange={handleChange} />
+        <input type="number" className="input" value={count} readOnly onChange={handleChange} />
         <button onClick={handleIncrease} disabled={isDisabled}>
           <TbPlus />
         </button>
       </div>
-      {!kids && (
-        <Toast onOpen={toast} onClose={() => setToast(false)} color={"red"}>
-          최소 1명이상 선택해야 합니다.
-        </Toast>
-      )}
     </>
   );
 };

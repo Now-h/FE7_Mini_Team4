@@ -44,7 +44,6 @@ const HotelDetail = () => {
   const [isPopup, setIsPopup] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
   const thisHotel = totalHotels.find((hotel) => hotel.id === 4595);
-  const [roomInfoDetail, setroomInfoDetail] = useState({});
 
   useEffect(() => {
     instance.get(`${fetchHotels}/${hotelId}`).then((response) => {
@@ -126,10 +125,6 @@ const HotelDetail = () => {
   const handleWrite = (blooan) => {
     setIsWrite(blooan);
   };
-  const handleCheckRommInfo = (data) => {
-    // console.log(data);
-    setroomInfoDetail(data);
-  };
 
   return (
     <div className="main mb-24">
@@ -182,12 +177,12 @@ const HotelDetail = () => {
             </Box>
             <Box>
               <Heading tag="h3" text="예약 가능한 객실" className="base" />
-              <RoomListToRead roomLists={hotelInfo?.rooms} className="mt-5" checkRommInfo={handleCheckRommInfo} />
+              <RoomListToRead roomLists={hotelInfo?.rooms} className="mt-5" />
             </Box>
           </div>
           <div className="mobile:fixed mobile:top-[inherit] mobile:bottom-0 z-50 mobile:left-0 tablet:left-[inherit] tablet:bottom-[inherit] tablet:sticky tablet:top-28 self-start mobile:w-full tablet:w-[25rem] desktop:w-[30rem] mobile:mt-0 tablet:mt-0">
             <Box className={"mobile:!rounded-[.75rem_.75rem_0_0] tablet:!rounded-xl mobile:!p-3 tablet:!p-5"}>
-              <ReservationFirst roomInfoDetail={roomInfoDetail} />
+              <ReservationFirst />
             </Box>
           </div>
         </div>
