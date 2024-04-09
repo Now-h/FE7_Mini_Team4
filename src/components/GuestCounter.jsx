@@ -1,42 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TbPlus } from "react-icons/tb";
 import { TbMinus } from "react-icons/tb";
-import "../styles/components/guestcounter.css";
-import Toast from "./Toast";
 import { useReservationStore } from "../store/reservationStore";
+import "../styles/components/guestcounter.css";
 
-const GuestCounter = ({ iscount, max, defaultValue, kids, className }) => {
-  const { payCalc } = useReservationStore();
-  const [count, setCount] = useState(defaultValue);
-  const [toast, setToast] = useState(false);
+const GuestCounter = ({ className }) => {
+  const { payCalc, addCalcStore } = useReservationStore();
+  const [count, setCount] = useState(0);
   const [isDisabled, setIsDisabled] = useState(false);
-
-  // console.log(payCalc.countMember);
 
   const handleDecrease = () => {
     if (count > 0) {
       setCount(count - 1);
-      iscount(count - 1);
-    } else {
-      setToast(true);
+      addCalcStore({ ...payCalc, adult_count: count - 1 });
     }
-    if (max > count - 1) {
+    if (payCalc.maximum_capacity > payCalc.countMember || 0 <= payCalc.countMember) {
       setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
     }
   };
   const handleIncrease = () => {
     setCount(count + 1);
-    iscount(count + 1);
-    if (max < count + 1) {
+
+    addCalcStore({ ...payCalc, adult_count: count + 1 });
+    if (payCalc.maximum_capacity === payCalc.countMember) {
       setIsDisabled(true);
-      setCount(count);
-      // addCount(max);
+    } else if (payCalc.maximum_capacity > payCalc.countMember) {
+      setIsDisabled(false);
     }
   };
   const handleChange = (e) => {
     let value = e.target.value;
     setCount(value);
-    iscount(value);
   };
 
   return (
@@ -50,11 +46,6 @@ const GuestCounter = ({ iscount, max, defaultValue, kids, className }) => {
           <TbPlus />
         </button>
       </div>
-      {!kids && (
-        <Toast onOpen={toast} onClose={() => setToast(false)} color={"red"}>
-          최소 1명이상 선택해야 합니다.
-        </Toast>
-      )}
     </>
   );
 };

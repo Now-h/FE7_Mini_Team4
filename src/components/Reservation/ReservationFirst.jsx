@@ -20,7 +20,7 @@ const ReservationFirst = () => {
   const token = localStorage.getItem("token");
   const { fetchOrders } = request;
   const navigate = useNavigate();
-  const { payCalc, addInfo, addCalcStore } = useReservationStore();
+  const { payCalc, addInfo, addCalcStore, resetPayCalc } = useReservationStore();
   const [isWidth, setIsWidth] = useState(window.innerWidth);
   const ref = useRef();
   const [isToggle, setIsToggle] = useState(false);
@@ -30,18 +30,9 @@ const ReservationFirst = () => {
   const [isPopup, setIsPopup] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoading2, setIsLoading2] = useState(false);
-  const { reservedRoom, addRoom } = useReserveRoomStore();
 
-  const { adult_fare, child_fare, bed_type, hotel_id, id, maximum_capacity, standard_capacity, standard_price, type, view_type } = reservedRoom;
-
-  // addCalcStore({ ...payCalc, standard_price: standard_price });
-  console.log(`
-    countMember : ${payCalc.countMember}
-    standard_price : ${payCalc.standard_price}
-    adult_fare : ${payCalc.adult_fare}
-    child_fare : ${payCalc.child_fare}
-    days : ${payCalc.days}
-  `);
+  const { id, check_in, check_out, adult_count, child_count } = payCalc;
+  const postObject = { room_id: id, check_in, check_out, adult_count, child_count };
 
   const isLoggedIn = () => {
     const token = localStorage.getItem("token");
@@ -54,9 +45,7 @@ const ReservationFirst = () => {
   const handleEnd = (check_out) => {
     addCalcStore({ ...payCalc, check_out: check_out });
   };
-  const handleAdult = (adult_count) => {
-    addCalcStore({ ...payCalc, adult_count: adult_count });
-  };
+
   const handleChildren = (child_count) => {
     addCalcStore({ ...payCalc, child_count: child_count });
   };
@@ -84,9 +73,9 @@ const ReservationFirst = () => {
       setIsPopup(true);
       setErrrorMessage("체크아웃 날짜를 선택해주세요.");
       isValid = false;
-    } else if (payCalc.adult_count + payCalc.child_count > maximum_capacity) {
+    } else if (payCalc.adult_count + payCalc.child_count > payCalc.maximum_capacity) {
       setIsPopup(true);
-      setErrrorMessage(`해당 객실은 ${maximum_capacity}명까지 수용가능한 객실입니다. 인원수를 조절해주세요.`);
+      setErrrorMessage(`해당 객실은 ${payCalc.maximum_capacity}명까지 수용가능한 객실입니다. 인원수를 조절해주세요.`);
       isValid = false;
     } else if (payCalc.adult_count + payCalc.child_count === 0) {
       setIsPopup(true);
@@ -106,29 +95,12 @@ const ReservationFirst = () => {
     };
 
     const handleCalculate = () => {
-      const checkIn = new Date(payCalc.check_in);
-      const checkOut = new Date(payCalc.check_out);
-      const days = (checkOut - checkIn) / (1000 * 60 * 60 * 24); // 일수
-      const basePrice = days * (standard_price ? parseInt(standard_price) : 0); // 1박가격 x 숙박일
-
-      // 인원수초과
-      if (maximum_capacity < payCalc.countMember) {
+      if (payCalc.maximum_capacity < payCalc.countMember) {
+        // 인원수초과
         setIsToast(true);
-
-        // 추가금액범위
-      } else if (payCalc.countMember > standard_capacity) {
-        let adult = (parseInt(payCalc.adult_count) - standard_capacity) * payCalc.adult_pay * parseInt(days); // 어른수 x 어른가격 * 숙박일
-        // let child = parseInt(isPayInfo.child_count) * isPayInfo.child_pay * parseInt(days); // 아이수 x 아이가격 * 숙박일
-        addCalcStore({ ...payCalc, adult_fare: adult });
-      } else if (payCalc.countMember <= standard_capacity) {
+      } else {
         setIsToast(false);
-        // setIsPayInfo((prev) => ({ ...prev, adult_fare: 0, child_fare: 0, total_price: basePrice }));
-        // setIsToast2(true);
-        // setIsToast2(false);
       }
-      const totalPay = payCalc.adult_fare + payCalc.child_fare + basePrice;
-      addCalcStore({ ...payCalc, total_price: totalPay });
-      // setIsPayInfo((prev) => ({ ...prev, total_price: totalPay }));
     };
 
     window.addEventListener("resize", handleResize);
@@ -141,6 +113,7 @@ const ReservationFirst = () => {
   // 결제다음단계 넘기기
   const handleReservation = async (e) => {
     e.preventDefault();
+
     const isValidCheck = CheckEmpty();
 
     // 로그인체크
@@ -152,7 +125,7 @@ const ReservationFirst = () => {
     let orderId = "";
     try {
       setIsLoading2(true);
-      const responseOrder = await instance.post(fetchOrders, payCalc, {
+      const responseOrder = await instance.post(fetchOrders, postObject, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -164,10 +137,10 @@ const ReservationFirst = () => {
     } catch (error) {
       console.log(`submitReservation :`, error);
     } finally {
+      resetPayCalc();
       setTimeout(() => {
         setIsLoading2(false);
         setIsLoading(false);
-        addRoom({});
         navigate(`/reservation/?${orderId}`);
       }, 1500);
     }
@@ -180,7 +153,7 @@ const ReservationFirst = () => {
     if (isValidCheck) {
       try {
         setIsLoading2(true);
-        await instance.post(fetchOrders, payCalc, {
+        await instance.post(fetchOrders, postObject, {
           headers: {
             Authorization: `bearer ${token}`,
           },
@@ -188,15 +161,13 @@ const ReservationFirst = () => {
       } catch (error) {
         console.log(error);
       } finally {
+        addCalcStore({});
         setIsLoading2(false);
       }
     }
   };
 
   // const payCalc = useReservationStore((state) => state.payCalc);
-
-  // // total_price를 제외한 payCalc를 가져오는 selector 함수
-  // const { total_price, ...restPayCalc } = useReservationStore((state) => state.payCalc);
 
   // form핸들링
   const handleSubmit = (e) => {
@@ -208,13 +179,13 @@ const ReservationFirst = () => {
         <Box className={"white !py-3 !px-4 mb-3"}>
           <ul className="flex gap-6 text-base">
             <li>
-              룸종류 : <b>{type ? type : "-"}</b>
+              룸종류 : <b>{payCalc.type ? payCalc.type : "-"}</b>
             </li>
             <li>
-              침대타입 : <b>{bed_type ? bed_type : "-"}</b>
+              침대타입 : <b>{payCalc.bed_type ? payCalc.bed_type : "-"}</b>
             </li>
             <li>
-              객실뷰 : <b>{view_type ? view_type : "-"}</b>
+              객실뷰 : <b>{payCalc.view_type ? payCalc.view_type : "-"}</b>
             </li>
           </ul>
         </Box>
@@ -234,23 +205,23 @@ const ReservationFirst = () => {
             </li>
             <li>
               <strong className="--title">성인(청소년)</strong>
-              <GuestCounter iscount={handleAdult} max={maximum_capacity} defaultValue={0} />
+              <GuestCounter />
             </li>
             <li>
               <strong className="--title">어린이</strong>
-              <GuestCounterChild iscount={handleChildren} max={maximum_capacity} />
+              <GuestCounterChild iscount={handleChildren} />
             </li>
             <li className="!grid grid-cols-2">
               <strong className="--title">성인 ⨉ {payCalc.adult_count ? payCalc.adult_count : 0}</strong>
-              <span className="--total justify-self-end">₩ {payCalc.adult_fare ? digit3(payCalc.adult_fare) : 0}</span>
+              <span className="--total justify-self-end">₩ {payCalc.adult_pay ? digit3(payCalc.adult_pay) : 0}</span>
               <strong className="--title">어린이 ⨉ {payCalc.child_count ? payCalc.child_count : 0}</strong>
-              <span className="--total justify-self-end">₩ {payCalc.child_fare ? digit3(payCalc.child_fare) : 0}</span>
-              {/* <strong className="--title">기본숙박료</strong>
-              <span className="--total justify-self-end">₩ {price1 ? digit3(price1) : 0}</span> */}
+              <span className="--total justify-self-end">₩ {payCalc.child_pay ? digit3(payCalc.child_pay) : 0}</span>
+              <strong className="--title">기본숙박료</strong>
+              <span className="--total justify-self-end">₩ {digit3(payCalc.standard_price ? payCalc.standard_price : 0)}</span>
             </li>
             <li>
               <strong className="--title !text-lg">총 금액</strong>
-              <span className="--total justify-self-end">₩ {payCalc.total_price ? digit3(payCalc.total_price) : digit3(standard_price)}</span>
+              <span className="--total justify-self-end">₩ {digit3(payCalc.total_price)}</span>
             </li>
           </ul>
           <div className="grid grid-cols-[1.7fr_1fr] gap-3">
@@ -271,12 +242,12 @@ const ReservationFirst = () => {
       </div>
       {isToast && (
         <Toast onOpen={isToast} onClose={() => setIsToast(false)} color={"red"}>
-          인원수가 초과되었습니다. 최대 {maximum_capacity}명 수용 가능합니다.
+          인원수가 초과되었습니다. 최대 {payCalc.maximum_capacity}명 수용 가능합니다.
         </Toast>
       )}
       {isToast2 && (
         <Toast onOpen={isToast2} onClose={() => setIsToast2(false)} color={"blue"}>
-          해당 숙소는 {standard_capacity + 1}인이상 {maximum_capacity}이하면 추가금액이 발생합니다.
+          해당 숙소는 {payCalc.standard_capacity + 1}인이상 {payCalc.maximum_capacity}이하면 추가금액이 발생합니다.
         </Toast>
       )}
       <Dialog open={isPopup} close={() => setIsPopup(false)}>

@@ -12,12 +12,14 @@ import RoomPicture from "../RoomPicture";
 import Toast from "../../Toast";
 import request from "../../../api/request";
 import instance from "../../../api/axios";
+import { useReservationStore } from "../../../store/reservationStore";
 
 const RoomListItemsToRead = ({ roomLists, edit, ...props }) => {
   const show = { able: "disabled" };
   const { fetchHotels } = request;
   const { totalHotels } = usehotelListStore();
-  const { addRoom, reservedRoom } = useReserveRoomStore();
+  const { addRoom } = useReserveRoomStore();
+  const { addCalcStore } = useReservationStore();
   let { hotelId } = useParams();
   const { rooms, deleteRoom } = useRoomStore();
   const thisHotel = totalHotels.find((hotel) => hotel.id === Number(hotelId));
@@ -37,7 +39,7 @@ const RoomListItemsToRead = ({ roomLists, edit, ...props }) => {
   const clickToReserve = (id, type) => {
     const clickedItem = roomsInfo?.find((it) => it.id === id);
     setToast(!toast);
-    addRoom(clickedItem);
+    addCalcStore(clickedItem);
     setToastInfo(type);
   };
 

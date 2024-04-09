@@ -6,10 +6,7 @@ import { digit3 } from "../../store/digit3";
 import { useLoginStore } from "../../store/loginStore";
 
 const ReservationHotelInfo = ({ ...isitem }) => {
-  // const { paymentInfos } = useReservationStore();
-
   const { userCredit } = useLoginStore();
-  // const paymentinfo = paymentInfos[0].data.result;
 
   return (
     <Box className="reservation__hotel-info">

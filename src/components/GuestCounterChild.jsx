@@ -2,56 +2,47 @@ import React, { useEffect, useState } from "react";
 import { TbPlus } from "react-icons/tb";
 import { TbMinus } from "react-icons/tb";
 import "../styles/components/guestcounter.css";
-import Toast from "./Toast";
 import { useReservationStore } from "../store/reservationStore";
 
-const GuestCounterChild = ({ iscount, max, defaultValue, className, allCount }) => {
-  const [count, setCount] = useState(defaultValue || 0);
-  const [toast, setToast] = useState(false);
+const GuestCounterChild = ({ className }) => {
+  const { payCalc, addCalcStore } = useReservationStore();
+  const [count, setCount] = useState(0);
   const [isDisabled, setIsDisabled] = useState(false);
-  const { allCountStore } = useReservationStore;
-
-  // console.log(allCount);
 
   useEffect(() => {
-    if (allCount >= max) {
+    if (payCalc.adult_count >= payCalc.maximum_capacity) {
       setIsDisabled(true);
     } else {
       setIsDisabled(false);
     }
-  }, [allCount]);
+  }, [payCalc.adult_count]);
 
   const handleDecrease = () => {
     if (count > 0) {
       setCount(count - 1);
-      iscount(count - 1);
-    } else {
-      setToast(true);
+      addCalcStore({ ...payCalc, child_count: count - 1 });
     }
-    // console.log(max, count - 1);
-    if (max > count - 1) {
+    if (payCalc.maximum_capacity > payCalc.countMember) {
       setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
     }
   };
   const handleIncrease = () => {
     setCount(count + 1);
-    iscount(count + 1);
-    if (max < count + 1) {
+    addCalcStore({ ...payCalc, child_count: count + 1 });
+
+    if (payCalc.maximum_capacity === payCalc.countMember) {
       setIsDisabled(true);
-      setCount(count);
+    } else {
+      setIsDisabled(false);
     }
   };
   const handleChange = (e) => {
     let value = e.target.value;
     setCount(value);
-    iscount(value);
   };
-  // if (allCountStore === max) {
-  //   setIsDisabled(true);
-  // } else if (allCountStore < max) {
-  //   setIsDisabled(false);
-  // }
-  // console.log(allCountStore);
+
   return (
     <>
       <div className={`guest-counter ${className}`}>
