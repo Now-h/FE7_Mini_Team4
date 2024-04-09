@@ -137,6 +137,11 @@ const ReservationPersonInfo = (isitem) => {
     }
   };
 
+  const handleCancel = (e) => {
+    e.preventDefault();
+    navigate(`/hoteldetail/${hotel.id}`);
+  };
+
   return (
     <div className="relative">
       <form>
@@ -188,7 +193,7 @@ const ReservationPersonInfo = (isitem) => {
           <button className="btn-blue xl" onClick={handleReservation}>
             숙소 예약하기
           </button>
-          <Link to={`/hoteldetail/${hotel.id}`} className="btn-red xl">
+          <Link onClick={handleCancel} className="btn-red xl">
             취소하기
           </Link>
         </div>
